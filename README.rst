@@ -8,8 +8,8 @@ Django Web Exceptions
 .. image:: https://travis-ci.org/Samael500/web-exceptions.svg?branch=master
     :target: https://travis-ci.org/Samael500/web-exceptions
 
-.. image:: https://coveralls.io/repos/Samael500/web-exceptions/badge.svg?branch=master
-    :target: https://coveralls.io/r/Samael500/web-exceptions
+.. image:: https://codecov.io/gh/samael500/web-exceptions/branch/master/graph/badge.svg
+    :target: https://codecov.io/gh/samael500/web-exceptions
 
 Throwing web exceptions like in AioHTTP
 

@@ -4,5 +4,5 @@ flake8>=2.1.0
 pylama>=7.3.3
 pep8>=1.7.0
 tox>=1.7.0
-coveralls>=1.1
+codecov>=2.0.9
 django-rainbowtests==0.6.0
