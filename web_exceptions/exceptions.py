@@ -1,10 +1,14 @@
 from django.http import HttpResponse
 
 __all__ = (
+    # base exceptions
     'HTTPException',
     'HTTPError',
     'HTTPRedirection',
     'HTTPSuccessful',
+    'HTTPClientError',
+    'HTTPServerError',
+    # 200x status code
     'HTTPOk',
     'HTTPCreated',
     'HTTPAccepted',
@@ -12,6 +16,7 @@ __all__ = (
     'HTTPNoContent',
     'HTTPResetContent',
     'HTTPPartialContent',
+    # 300x status code
     'HTTPMultipleChoices',
     'HTTPMovedPermanently',
     'HTTPFound',
@@ -20,7 +25,7 @@ __all__ = (
     'HTTPUseProxy',
     'HTTPTemporaryRedirect',
     'HTTPPermanentRedirect',
-    'HTTPClientError',
+    # 400x status code
     'HTTPBadRequest',
     'HTTPUnauthorized',
     'HTTPPaymentRequired',
@@ -45,7 +50,7 @@ __all__ = (
     'HTTPTooManyRequests',
     'HTTPRequestHeaderFieldsTooLarge',
     'HTTPUnavailableForLegalReasons',
-    'HTTPServerError',
+    # 500x status code
     'HTTPInternalServerError',
     'HTTPNotImplemented',
     'HTTPBadGateway',
@@ -61,7 +66,7 @@ __all__ = (
 class HTTPException(HttpResponse, Exception):
 
     """
-    Base Web explanation 
+    Base Web explanation
     In subclasses should set status_code attr
     """
 
@@ -73,13 +78,13 @@ class HTTPException(HttpResponse, Exception):
         headers = headers or {}
         for key, value in headers.items():
             self[key] = value
-        Exception.__init__(self, self.reason_phrase)
         if not (self.content or self.empty_body):
             self.content = "{}: {}".format(self.status_code, self.reason_phrase).encode(self.charset)
+        Exception.__init__(self, self.reason_phrase)
 
 
 class HTTPError(HTTPException):
- 
+
     """ Base class for exceptions with status codes in the 400s and 500s. """
 
 
@@ -91,6 +96,16 @@ class HTTPRedirection(HTTPException):
 class HTTPSuccessful(HTTPException):
 
     """ Base class for exceptions with status codes in the 200s. """
+
+
+class HTTPClientError(HTTPError):
+
+    """ Base class for exceptions with status codes in the 400s. """
+
+
+class HTTPServerError(HTTPError):
+
+    """ Base class for exceptions with status codes in the 500s. """
 
 
 class HTTPOk(HTTPSuccessful):
@@ -164,10 +179,6 @@ class HTTPTemporaryRedirect(_HTTPMove):
 
 class HTTPPermanentRedirect(_HTTPMove):
     status_code = 308
-
-
-class HTTPClientError(HTTPError):
-    pass
 
 
 class HTTPBadRequest(HTTPClientError):
@@ -276,10 +287,6 @@ class HTTPUnavailableForLegalReasons(HTTPClientError):
         super().__init__(**kwargs)
         self._headers['Link'] = '<{}>; rel="blocked-by"'.format(link)
         self.link = link
-
-
-class HTTPServerError(HTTPError):
-    pass
 
 
 class HTTPInternalServerError(HTTPServerError):
