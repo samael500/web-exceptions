@@ -1,4 +1,4 @@
-##Example Project for web_exceptions
+## Example Project for web_exceptions
 
 This example is provided as a convenience feature to allow potential users to try the app straight from the app repo without having to create a django project.
 
@@ -11,14 +11,8 @@ To run this example, follow these instructions:
 		
 		pip install -r requirements.txt
 		
-3. Make and apply migrations
-
-		python manage.py makemigrations
-		
-		python manage.py migrate
-		
-4. Run the server
+3. Run the server
 
 		python manage.py runserver
 		
-5. Access from the browser at `http://127.0.0.1:8000`
+4. Access from the browser at `http://127.0.0.1:8000`

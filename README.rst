@@ -79,6 +79,8 @@ defined in `urls.py` like `django error handlers <https://docs.djangoproject.com
     handler400 = <callable view>
     handler<status_code> = <callable view>
 
+For more example see `example proj <https://github.com/Samael500/web-exceptions/tree/master/example>`_
+
 
 Running Tests
 -------------
