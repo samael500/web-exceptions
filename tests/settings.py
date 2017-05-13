@@ -7,14 +7,10 @@ DEBUG = True
 USE_TZ = True
 
 # SECURITY WARNING: keep the secret key used in production secret!
+SITE_ID = 1
 SECRET_KEY = "44444444444444444444444444444444444444444444444444"
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": ":memory:",
-    }
-}
+DATABASES = {}
 
 ROOT_URLCONF = "tests.urls"
 
@@ -25,9 +21,6 @@ INSTALLED_APPS = [
     "web_exceptions",
 ]
 
-SITE_ID = 1
-
-if django.VERSION >= (1, 10):
-    MIDDLEWARE = ()
-else:
-    MIDDLEWARE_CLASSES = ()
+MIDDLEWARE = (
+    'web_exceptions.middleware.WebExceptionsMiddleware',
+)
