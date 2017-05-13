@@ -285,7 +285,7 @@ class HTTPUnavailableForLegalReasons(HTTPClientError):
 
     def __init__(self, link, **kwargs):
         super().__init__(**kwargs)
-        self._headers['Link'] = '<{}>; rel="blocked-by"'.format(link)
+        self['Link'] = '<{}>; rel="blocked-by"'.format(link)
         self.link = link
 
 

@@ -31,4 +31,3 @@ MIDDLEWARE_CLASSES = (
 )
 
 TEST_RUNNER = 'rainbowtests.test.runner.RainbowDiscoverRunner'
-RAINBOWTESTS_HIGHLIGHT_PATH = '../web_exceptions'
