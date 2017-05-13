@@ -69,12 +69,13 @@ class HTTPException(HttpResponse, Exception):
     empty_body = False
 
     def __init__(self, *, content=None, headers=None, **kwargs):
-        super(HttpResponse, self).__init__(
-            status=self.status_code, content=content, **kwargs)
-        if self.content is None and not self.empty_body:
-            self.text = "{}: {}".format(self.status, self.reason).encode(self.charset)
-        self._headers.update(headers or {})
-        super(Exception, self).__init__(self.reason)
+        HttpResponse.__init__(self, content or "", status=self.status_code, **kwargs)
+        headers = headers or {}
+        for key, value in headers.items():
+            self[key] = value
+        Exception.__init__(self, self.reason_phrase)
+        if not (self.content or self.empty_body):
+            self.content = "{}: {}".format(self.status_code, self.reason_phrase).encode(self.charset)
 
 
 class HTTPError(HTTPException):
@@ -124,11 +125,11 @@ class HTTPPartialContent(HTTPSuccessful):
 
 class _HTTPMove(HTTPRedirection):
 
-    def __init__(self, location, *args, **kwargs):
+    def __init__(self, location, **kwargs):
         if not location:
             raise ValueError("HTTP redirects need a location to redirect to.")
-        super().__init__(*args, **kwargs)
-        self._headers['Location'] = str(location)
+        super().__init__(**kwargs)
+        self['Location'] = str(location)
         self.location = location
 
 
@@ -192,10 +193,10 @@ class HTTPNotFound(HTTPClientError):
 class HTTPMethodNotAllowed(HTTPClientError):
     status_code = 405
 
-    def __init__(self, method, allowed_methods, *args, **kwargs):
-        allow = ','.join(sorted(allowed_methods))
-        super().__init__(*args, **kwargs)
-        self.headers['Allow'] = allow
+    def __init__(self, method, allowed_methods, **kwargs):
+        allow = ','.join(sorted(allowed_methods)).upper()
+        super().__init__(**kwargs)
+        self['Allow'] = allow
         self.allowed_methods = allowed_methods
         self.method = method.upper()
 
@@ -271,9 +272,9 @@ class HTTPRequestHeaderFieldsTooLarge(HTTPClientError):
 class HTTPUnavailableForLegalReasons(HTTPClientError):
     status_code = 451
 
-    def __init__(self, link, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.headers['Link'] = '<{}>; rel="blocked-by"'.format(link)
+    def __init__(self, link, **kwargs):
+        super().__init__(**kwargs)
+        self._headers['Link'] = '<{}>; rel="blocked-by"'.format(link)
         self.link = link
 
 
