@@ -16,7 +16,7 @@ Throwing web exceptions like in AioHTTP
 What and why?
 -------------
 
-In AioHTTP_ you cat raise any response as exception (this is very cool).
+In AioHTTP_ you can raise any response as exception (this is very cool).
 But Django can raise only 3+1 web exceptions.
 
 - `400` `SuspiciousOperation <https://docs.djangoproject.com/en/1.11/ref/exceptions/#suspiciousoperation>`_
@@ -24,7 +24,7 @@ But Django can raise only 3+1 web exceptions.
 - `404` `Http404 <https://docs.djangoproject.com/en/1.11/topics/http/views/#the-http404-exception>`_
 - `500` Any other non catched exception
 
-This package allow you to raise as exception any on HTTP response.
+This package allow you to raise as exception any of HTTP response.
 
 .. And configure any custome `handlerXXX` for that.
 
@@ -66,7 +66,7 @@ Import exceptions and raise anywhere
         raise exceptions.HTTPMovedPermanently('/foo')
 
 
-Also you cat customize any kind of exception status code as custom handler,
+Also you can customize any kind of exception status code as custom handler,
 defined in `urls.py` like `django error handlers <https://docs.djangoproject.com/en/1.11/topics/http/views/#customizing-error-views>`_ .
 
 .. code-block:: python
