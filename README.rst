@@ -13,45 +13,43 @@ Django Web Exceptions
 
 Throwing web exceptions like in AioHTTP
 
-Documentation
--------------
+.. Documentation
+.. -------------
 
-The full documentation is at https://web-exceptions.readthedocs.io.
+.. The full documentation is at https://web-exceptions.readthedocs.io.
 
 Quickstart
 ----------
 
 Install Django Web Exceptions::
 
-    pip install web-exceptions
+    pip install django-web-exceptions
 
-Add it to your `INSTALLED_APPS`:
+Add it to your `MIDDLEWARE`:
 
 .. code-block:: python
 
-    INSTALLED_APPS = (
-        ...
-        'web_exceptions.apps.DjExceptionsConfig',
-        ...
+    MIDDLEWARE = (
+        # ...
+        'web_exceptions.middleware.WebExceptionsMiddleware',
+        # ...
     )
-
-Add Django Web Exceptions's URL patterns:
-
-.. code-block:: python
-
-    from web_exceptions import urls as web_exceptions_urls
-
-
-    urlpatterns = [
-        ...
-        url(r'^', include(web_exceptions_urls)),
-        ...
-    ]
 
 Features
 --------
 
-* TODO
+Import exceptions and raise anywhere
+
+.. code-block:: python
+
+    from web_exceptions import exceptions
+
+    # ...
+
+    def index(request):
+        """ Simple view raise redirectexception """
+        raise exceptions.HTTPMovedPermanently('/foo')
+
 
 Running Tests
 -------------
