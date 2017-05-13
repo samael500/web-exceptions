@@ -93,6 +93,13 @@ class TestWebExceptions300(TestCase):
 
     """ Test case for web Exceptions with 300x status codes """
 
+    @mock.patch('tests.views.IndexView.get', mock_view(exceptions.HTTPMultipleChoices, location=None))
+    def test_location_required(self):
+        """ Required Location arg (should ValueError raised) """
+        with self.assertRaises(ValueError) as err:
+            self.client.get('/')
+        self.assertEqual(str(err.exception), 'HTTP redirects need a location to redirect to.')
+
     @mock.patch('tests.views.IndexView.get', mock_view(exceptions.HTTPMultipleChoices, location='/foo'))
     def test_300(self):
         """ Check is raised exception return correct HTTP Response with status 300 """
