@@ -22,4 +22,7 @@ urlpatterns = [
     url(r'^$', views.index),
     url(r'^tea$', views.tea),
     url(r'^coffee$', views.coffee),
+    url(r'^timeout$', views.timeout),
 ]
+
+handler408 = views.handler408
