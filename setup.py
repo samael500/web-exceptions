@@ -45,7 +45,7 @@ readme = open('README.rst').read()
 history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 
 setup(
-    name='web-exceptions',
+    name='django-web-exceptions',
     version=version,
     description="""Throwing web exceptions like in AioHTTP""",
     long_description=readme + '\n\n' + history,
