@@ -26,7 +26,7 @@ INSTALLED_APPS = [
     "web_exceptions",
 ]
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
     'web_exceptions.middleware.WebExceptionsMiddleware',
 )
 
