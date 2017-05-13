@@ -29,6 +29,13 @@ class TestWebExceptions200(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.content.decode('utf-8'), "Thist is default view response")
 
+    @mock.patch('tests.views.IndexView.get', mock_view(RuntimeError, 'x test text'))
+    def test_non_web_exception(self):
+        """ Not web exception check (should error raised) """
+        with self.assertRaises(RuntimeError) as err:
+            response = self.client.get('/')
+        self.assertEqual(str(err.exception), 'x test text')
+
     @mock.patch('tests.views.IndexView.get', mock_view(
         exceptions.HTTPOk, content='exception 200 ok content', headers={'X-key': 'X-value'}))
     def test_200(self):
