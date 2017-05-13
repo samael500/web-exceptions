@@ -7,3 +7,5 @@ from tests import views
 urlpatterns = [
     url(r'^$', views.IndexView.as_view()),
 ]
+
+handler444 = views.handler444

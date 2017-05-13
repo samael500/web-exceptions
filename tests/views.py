@@ -8,3 +8,7 @@ class IndexView(View):
 
     def get(self, *args, **kwargs):
         return HttpResponse(content="Thist is default view response")
+
+
+def handler444(self):
+    return HttpResponse(content="This is custom error handler", status=444)

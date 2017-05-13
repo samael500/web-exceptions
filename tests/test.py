@@ -403,3 +403,18 @@ class TestWebExceptions500(TestCase):
         response = self.client.get('/')
         self.assertEqual(response.status_code, 511)
         self.assertEqual(response.content.decode('utf-8'), "511: Network Authentication Required")
+
+
+class TestWebExceptionsCustomHandler(TestCase):
+
+    """ Test case for web Exceptions with 200x status codes """
+
+    class HTTP444(exception.HTTPClientError):
+        status_code = 444
+
+    @mock.patch('tests.views.IndexView.get', mock_view(HTTP444))
+    def test_view(self):
+        """ Check is custom handler response return """
+        response = self.client.get('/')
+        self.assertEqual(response.status_code, 444)
+        self.assertEqual(response.content.decode('utf-8'), "This is custom error handler")
