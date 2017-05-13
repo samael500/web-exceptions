@@ -10,7 +10,12 @@ USE_TZ = True
 SITE_ID = 1
 SECRET_KEY = "44444444444444444444444444444444444444444444444444"
 
-DATABASES = {}
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': ':memory:',
+    }
+}
 
 ROOT_URLCONF = "tests.urls"
 
@@ -21,6 +26,9 @@ INSTALLED_APPS = [
     "web_exceptions",
 ]
 
-MIDDLEWARE = (
+MIDDLEWARE_CLASSES = (
     'web_exceptions.middleware.WebExceptionsMiddleware',
 )
+
+TEST_RUNNER = 'rainbowtests.test.runner.RainbowDiscoverRunner'
+RAINBOWTESTS_HIGHLIGHT_PATH = '../web_exceptions'
