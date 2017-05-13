@@ -19,4 +19,4 @@ def tea(request):
 
 def coffee(request):
     """ Raise redirect to a teapot exception """
-    raise exceptions.HTTPPermanentRedirect('/tea')
+    raise exceptions.HTTPMovedPermanently('/tea')
