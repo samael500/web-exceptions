@@ -3,8 +3,8 @@ from __future__ import unicode_literals, absolute_import
 
 from django.conf.urls import url, include
 
-from dj_exceptions.urls import urlpatterns as dj_exceptions_urls
+from web_exceptions.urls import urlpatterns as web_exceptions_urls
 
 urlpatterns = [
-    url(r'^', include(dj_exceptions_urls, namespace='dj_exceptions')),
+    url(r'^', include(web_exceptions_urls, namespace='web_exceptions')),
 ]

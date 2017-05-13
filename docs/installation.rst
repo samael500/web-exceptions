@@ -4,9 +4,9 @@ Installation
 
 At the command line::
 
-    $ easy_install dj-exceptions
+    $ easy_install web-exceptions
 
 Or, if you have virtualenvwrapper installed::
 
-    $ mkvirtualenv dj-exceptions
-    $ pip install dj-exceptions
+    $ mkvirtualenv web-exceptions
+    $ pip install web-exceptions

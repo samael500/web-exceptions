@@ -3,4 +3,4 @@ from django.apps import AppConfig
 
 class DjExceptionsConfig(AppConfig):
 
-    name = 'dj_exceptions'
+    name = 'web_exceptions'

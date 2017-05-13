@@ -1,4 +1,4 @@
-from dj_exceptions.exceptions import HTTPException
+from web_exceptions.exceptions import HTTPException
 
 
 class WebExceptionsMiddleware(object):

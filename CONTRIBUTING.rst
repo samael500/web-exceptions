@@ -13,7 +13,7 @@ Types of Contributions
 Report Bugs
 ~~~~~~~~~~~
 
-Report bugs at https://github.com/samael500/dj-exceptions/issues.
+Report bugs at https://github.com/samael500/web-exceptions/issues.
 
 If you are reporting a bug, please include:
 
@@ -43,7 +43,7 @@ articles, and such.
 Submit Feedback
 ~~~~~~~~~~~~~~~
 
-The best way to send feedback is to file an issue at https://github.com/samael500/dj-exceptions/issues.
+The best way to send feedback is to file an issue at https://github.com/samael500/web-exceptions/issues.
 
 If you are proposing a feature:
 
@@ -55,17 +55,17 @@ If you are proposing a feature:
 Get Started!
 ------------
 
-Ready to contribute? Here's how to set up `dj-exceptions` for local development.
+Ready to contribute? Here's how to set up `web-exceptions` for local development.
 
-1. Fork the `dj-exceptions` repo on GitHub.
+1. Fork the `web-exceptions` repo on GitHub.
 2. Clone your fork locally::
 
-    $ git clone git@github.com:your_name_here/dj-exceptions.git
+    $ git clone git@github.com:your_name_here/web-exceptions.git
 
 3. Install your local copy into a virtualenv. Assuming you have virtualenvwrapper installed, this is how you set up your fork for local development::
 
-    $ mkvirtualenv dj-exceptions
-    $ cd dj-exceptions/
+    $ mkvirtualenv web-exceptions
+    $ cd web-exceptions/
     $ python setup.py develop
 
 4. Create a branch for local development::
@@ -77,7 +77,7 @@ Ready to contribute? Here's how to set up `dj-exceptions` for local development.
 5. When you're done making changes, check that your changes pass flake8 and the
    tests, including testing other Python versions with tox::
 
-        $ flake8 dj_exceptions tests
+        $ flake8 web_exceptions tests
         $ python setup.py test
         $ tox
 
@@ -101,7 +101,7 @@ Before you submit a pull request, check that it meets these guidelines:
    your new functionality into a function with a docstring, and add the
    feature to the list in README.rst.
 3. The pull request should work for Python 2.6, 2.7, and 3.3, and for PyPy. Check 
-   https://travis-ci.org/samael500/dj-exceptions/pull_requests
+   https://travis-ci.org/samael500/web-exceptions/pull_requests
    and make sure that the tests pass for all supported Python versions.
 
 Tips
@@ -109,4 +109,4 @@ Tips
 
 To run a subset of tests::
 
-    $ python -m unittest tests.test_dj_exceptions
+    $ python -m unittest tests.test_web_exceptions

@@ -1,4 +1,4 @@
-from dj_exceptions import exceptions
+from web_exceptions import exceptions
 
 
 class HTTPTeapot(exceptions.HTTPClientError):

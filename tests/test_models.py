@@ -2,18 +2,18 @@
 # -*- coding: utf-8 -*-
 
 """
-test_dj-exceptions
+test_web-exceptions
 ------------
 
-Tests for `dj-exceptions` models module.
+Tests for `web-exceptions` models module.
 """
 
 from django.test import TestCase
 
-from dj_exceptions import models
+from web_exceptions import models
 
 
-class TestDj_exceptions(TestCase):
+class Testweb_exceptions(TestCase):
 
     def setUp(self):
         pass
