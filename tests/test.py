@@ -407,9 +407,9 @@ class TestWebExceptions500(TestCase):
 
 class TestWebExceptionsCustomHandler(TestCase):
 
-    """ Test case for web Exceptions with 200x status codes """
+    """ Test case for web Exceptions with custom handlers """
 
-    class HTTP444(exception.HTTPClientError):
+    class HTTP444(exceptions.HTTPClientError):
         status_code = 444
 
     @mock.patch('tests.views.IndexView.get', mock_view(HTTP444))
