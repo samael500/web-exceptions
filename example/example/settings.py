@@ -35,11 +35,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    'web_exceptions',
-
-    # if your app has other dependencies that need to be added to the site
-    # they should be added here
 ]
 
 MIDDLEWARE = [
