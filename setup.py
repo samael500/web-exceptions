@@ -43,6 +43,7 @@ if sys.argv[-1] == 'tag':
 
 readme = open('README.rst').read()
 history = open('HISTORY.rst').read().replace('.. :changelog:', '')
+required = open('requirements.txt').read().splitlines()
 
 setup(
     name='django-web-exceptions',
@@ -52,20 +53,21 @@ setup(
     author='Maks Skorokhod',
     author_email='samael500@gmail.com',
     url='https://github.com/samael500/web-exceptions',
+    bugtrack_url='https://github.com/samael500/web-exceptions/issues',
     packages=[
         'web_exceptions',
     ],
     include_package_data=True,
-    install_requires=[],
+    install_requires=required,
     license="MIT",
     zip_safe=False,
-    keywords='web-exceptions',
+    keywords='web-exceptions django web exceptions http response'.split(),
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Framework :: Django',
         'Framework :: Django :: 1.10',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: BSD License',
+        'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.4',
