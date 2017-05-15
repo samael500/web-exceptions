@@ -3,7 +3,7 @@
 History
 -------
 
-0.1.1 (2017-05-15)
+0.1.2 (2017-05-15)
 ++++++++++++++++++
 
 * Clean source code from unused rows.
