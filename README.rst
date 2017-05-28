@@ -12,7 +12,7 @@ Django Web Exceptions
     :target: https://codecov.io/gh/samael500/web-exceptions
 
 .. image:: https://readthedocs.org/projects/web-exceptions/badge/?version=latest
-    :target: http://web-exceptions.readthedocs.io/en/latest/
+    :target: http://web-exceptions.readthedocs.io/en/latest/readme.html
     :alt: Documentation Status
 
 Throwing web exceptions like in AioHTTP
@@ -35,7 +35,7 @@ This package allow you to raise as exception any of HTTP response.
 Documentation
 -------------
 
-The full documentation is at https://web-exceptions.readthedocs.io.
+The full documentation is at http://web-exceptions.readthedocs.io/en/latest/readme.html.
 
 Quickstart
 ----------
