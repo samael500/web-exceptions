@@ -4,6 +4,7 @@ from web_exceptions import exceptions
 
 class HTTPTeapot(exceptions.HTTPClientError):
     status_code = 418
+    reason = "I'm a teapot"
 
 
 def index(request):
@@ -15,7 +16,7 @@ def index(request):
 
 def tea(request):
     """ Raise teapot exception """
-    raise HTTPTeapot(reason="I'm a teapot")
+    raise HTTPTeapot()
 
 
 def coffee(request):

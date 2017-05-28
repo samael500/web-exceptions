@@ -61,10 +61,11 @@ Raised custom `HTTPTeapot` exception with reason `I'm a teapot`
 ```python
 class HTTPTeapot(exceptions.HTTPClientError):
     status_code = 418
+    reason = "I'm a teapot"
 
 # ...
 
-raise HTTPTeapot(reason="I'm a teapot")
+raise HTTPTeapot()
 ```
 
 ```diff
