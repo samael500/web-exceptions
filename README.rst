@@ -47,8 +47,8 @@ Install Django Web Exceptions::
 Add it to your `MIDDLEWARE`:
 
 .. code-block:: python
-    :caption: settings.py
 
+    # settings.py
     MIDDLEWARE = (
         # ...
         'web_exceptions.middleware.WebExceptionsMiddleware',
@@ -61,8 +61,8 @@ Features
 Import exceptions and raise anywhere
 
 .. code-block:: python
-    :caption: views.py
 
+    # views.py
     from web_exceptions import exceptions
 
     # ...
@@ -76,8 +76,8 @@ Also you can customize any kind of exception status code as custom handler,
 defined in `urls.py` like `django error handlers <https://docs.djangoproject.com/en/1.11/topics/http/views/#customizing-error-views>`_ .
 
 .. code-block:: python
-    :caption: urls.py
 
+    # urls.py
     from myapp import views
 
     handler300 = <callable view>

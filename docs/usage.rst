@@ -8,8 +8,8 @@ Configure
 To use Django Web Exceptions in a project, add it to your `MIDDLEWARE` settings:
 
 .. code-block:: python
-    :caption: settings.py
 
+    # settings.py
     MIDDLEWARE = [
         ...
         # add middleware for dj exceptions
@@ -62,8 +62,8 @@ defined in `urls.py` like `django error handlers`_.
 
 
 .. code-block:: python
-    :caption: urls.py
 
+    # urls.py
     from myapp import views
 
     handler300 = <callable view>
