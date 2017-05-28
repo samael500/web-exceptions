@@ -2,6 +2,9 @@
 Usage
 =====
 
+Configure
+---------
+
 To use Django Web Exceptions in a project, add it to your `MIDDLEWARE` settings:
 
 .. code-block:: python
@@ -14,6 +17,8 @@ To use Django Web Exceptions in a project, add it to your `MIDDLEWARE` settings:
         ...
     ]
 
+Simple usage
+------------
 
 Import and raise Web Exceptions's:
 
@@ -27,6 +32,12 @@ Import and raise Web Exceptions's:
         content="Thist is Http Ok response",
         headers={'X-Extra-Header': 'some value'})
 
+
+Customize response
+------------------
+
+Self http exception
+~~~~~~~~~~~~~~~~~~~
 
 Declare custom web exception:
 
@@ -43,9 +54,11 @@ Declare custom web exception:
 
     raise HTTPTeapot()
 
+Self response handler
+~~~~~~~~~~~~~~~~~~~~~
 
 Also you can customize any kind of exception status code as custom handler,
-defined in `urls.py` like `django error handlers`_ .
+defined in `urls.py` like `django error handlers`_.
 
 
 .. code-block:: python
