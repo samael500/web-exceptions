@@ -3,6 +3,12 @@
 History
 -------
 
+0.1.4 (2017-05-28)
+++++++++++++++++++
+
+* Set custom reason phrase for exception response.
+* Add docs.
+
 0.1.3 (2017-05-15)
 ++++++++++++++++++
 
