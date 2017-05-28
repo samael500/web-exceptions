@@ -33,7 +33,7 @@ class TestWebExceptions200(TestCase):
     def test_non_web_exception(self):
         """ Not web exception check (should error raised) """
         with self.assertRaises(RuntimeError) as err:
-            response = self.client.get('/')
+            self.client.get('/')
         self.assertEqual(str(err.exception), 'x test text')
 
     @mock.patch('tests.views.IndexView.get', mock_view(
