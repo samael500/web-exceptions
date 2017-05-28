@@ -310,7 +310,7 @@ class TestWebExceptions400(TestCase):
         """ Check is raised exception return correct HTTP Response with status 421 """
         response = self.client.get('/')
         self.assertEqual(response.status_code, 421)
-        self.assertEqual(response.content.decode('utf-8'), "421: Unknown Status Code")
+        self.assertEqual(response.content.decode('utf-8'), "421: Misdirected Request")
 
     @mock.patch('tests.views.IndexView.get', mock_view(exceptions.HTTPUpgradeRequired))
     def test_426(self):
@@ -346,7 +346,7 @@ class TestWebExceptions400(TestCase):
         """ Check is raised exception return correct HTTP Response with status 451 """
         response = self.client.get('/')
         self.assertEqual(response.status_code, 451)
-        self.assertEqual(response.content.decode('utf-8'), "451: Unknown Status Code")
+        self.assertEqual(response.content.decode('utf-8'), "451: Unavailable for legal reasons")
         self.assertTrue(response.has_header('Link'))
         self.assertEqual(response.link, '/foo/boo/koo')
 

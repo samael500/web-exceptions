@@ -72,12 +72,14 @@ class HTTPException(HttpResponse, Exception):
 
     status_code = None
     empty_body = False
+    reason = None
 
     def __init__(self, *, content=None, headers=None, **kwargs):
         HttpResponse.__init__(self, content or "", status=self.status_code, **kwargs)
         headers = headers or {}
         for key, value in headers.items():
             self[key] = value
+        self._reason_phrase = self._reason_phrase or self.reason
         if not (self.content or self.empty_body):
             self.content = "{}: {}".format(self.status_code, self.reason_phrase).encode(self.charset)
         Exception.__init__(self, self.reason_phrase)
@@ -179,6 +181,7 @@ class HTTPTemporaryRedirect(_HTTPMove):
 
 class HTTPPermanentRedirect(_HTTPMove):
     status_code = 308
+    reason = "Permanent Redirect"
 
 
 class HTTPBadRequest(HTTPClientError):
@@ -262,10 +265,12 @@ class HTTPExpectationFailed(HTTPClientError):
 
 class HTTPMisdirectedRequest(HTTPClientError):
     status_code = 421
+    reason = "Misdirected Request"
 
 
 class HTTPUpgradeRequired(HTTPClientError):
     status_code = 426
+    reason = "Upgrade Required"
 
 
 class HTTPPreconditionRequired(HTTPClientError):
@@ -282,6 +287,7 @@ class HTTPRequestHeaderFieldsTooLarge(HTTPClientError):
 
 class HTTPUnavailableForLegalReasons(HTTPClientError):
     status_code = 451
+    reason = "Unavailable for legal reasons"
 
     def __init__(self, link, **kwargs):
         super().__init__(**kwargs)
@@ -315,10 +321,12 @@ class HTTPVersionNotSupported(HTTPServerError):
 
 class HTTPVariantAlsoNegotiates(HTTPServerError):
     status_code = 506
+    reason = "Variant Also Negotiates"
 
 
 class HTTPNotExtended(HTTPServerError):
     status_code = 510
+    reason = "Not Extended"
 
 
 class HTTPNetworkAuthenticationRequired(HTTPServerError):
