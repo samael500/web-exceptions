@@ -35,7 +35,7 @@ This package allow you to raise as exception any of HTTP response.
 Documentation
 -------------
 
-The full documentation is at http://web-exceptions.readthedocs.io/en/latest/readme.html.
+The full documentation is at https://web-exceptions.readthedocs.io.
 
 Quickstart
 ----------
