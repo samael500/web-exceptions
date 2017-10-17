@@ -10,7 +10,7 @@ python:
 env: 
   - TOX_ENV=py-django-110
   - TOX_ENV=py-django-111
-  - TOX_ENV=py-django-200
+  # - TOX_ENV=py-django-200
   - TOX_ENV=py-django-last
 
 matrix:
